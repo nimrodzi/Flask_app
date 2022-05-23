@@ -32,4 +32,4 @@ api.add_resource(StoreListResource, '/stores')
 if __name__ == '__main__':
     # db.metadata.clear()
     db.init_app(app)
-    app.run(debug=True)  # important to mention debug=True
+    app.run(port=3000, debug=True)  # important to mention debug=True
