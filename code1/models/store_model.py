@@ -1,7 +1,7 @@
 
 
-from code1.db import db
-from code1.models.item_model import ItemModel
+from db import db
+from models.item_model import ItemModel
 
 
 class StoreModel(db.Model):

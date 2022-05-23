@@ -2,11 +2,11 @@ from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
 
-from code1.security import authenticate, identity
-from code1.resources.item_resource import ItemResource, ItemListResource
-from code1.resources.store_resource import StoreResource, StoreListResource
-from code1.resources.user_resource import UserResource
-from code1.db import db
+from security import authenticate, identity
+from resources.item_resource import ItemResource, ItemListResource
+from resources.store_resource import StoreResource, StoreListResource
+from resources.user_resource import UserResource
+from db import db
 
 app = Flask(__name__)
 app.config['PROPAGATE_EXCEPTIONS'] = True  # To allow flask propagating exception even if debug is set to false on app
