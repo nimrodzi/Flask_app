@@ -11,10 +11,7 @@ from db import db
 
 app = Flask(__name__)
 app.config['PROPAGATE_EXCEPTIONS'] = True  # To allow flask propagating exception even if debug is set to false on app
-database_url = os.environ.get('DATABASE_URL')
-if database_url:
-    database_url = database_url[:8] + 'ql' + database_url[8:]
-app.config['SQLALCHEMY_DATABASE_URI'] = (database_url, 'sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL_SQL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'nimrod'
 api = Api(app)
