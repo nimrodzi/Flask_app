@@ -6,7 +6,7 @@ from flask_jwt import JWT
 from security import authenticate, identity
 from resources.item_resource import ItemResource, ItemListResource
 from resources.store_resource import StoreResource, StoreListResource
-from resources.user_resource import UserResource
+from resources.user_resource import UserResource, User
 from db import db
 
 app = Flask(__name__)
@@ -18,13 +18,14 @@ app.secret_key = 'nimrod'
 api = Api(app)
 
 
-jwt = JWT(app, authenticate, identity)
+jwt = JWT(app, authenticate, identity)  # /auth
 
 api.add_resource(UserResource, '/register')
 api.add_resource(ItemResource, '/item/<string:name>')
 api.add_resource(ItemListResource, '/items')
 api.add_resource(StoreResource, '/store/<string:name>')
 api.add_resource(StoreListResource, '/stores')
+api.add_resource(User, '/user/<int:user_id>')
 
 if __name__ == '__main__':
     # db.metadata.clear()

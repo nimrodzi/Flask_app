@@ -37,4 +37,4 @@ class StoreResource(Resource):
 class StoreListResource(Resource):
     @jwt_required()
     def get(self):
-        return {'stores': [store.to_json() for store in StoreModel.query.all()]}
+        return {'stores': [store.to_json() for store in StoreModel.find_all()]}
